@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Total Knee Replacement - Aafiya MediTreats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #333; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: #f5f5f5;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+    .top-bar a { color: #555; }
+    .top-bar a:hover { color: #0078b4; }
+    .top-bar i { margin-right: 4px; color: #0078b4; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #fff;
+      border-bottom: 2px solid #0078b4;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 65px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; }
+    .nav-logo .logo-icon {
+      background: #0078b4; color: #fff; font-size: 22px;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+    }
+    .nav-logo .logo-text { font-size: 18px; font-weight: 700; color: #0078b4; line-height: 1.1; }
+    .nav-logo .logo-text span { display: block; font-size: 10px; color: #888; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      padding: 8px 12px; font-size: 13px; font-weight: 600; color: #333;
+      border-radius: 4px; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: #0078b4; background: #f0f8ff; }
+    .nav-links .btn-enquiry { background: #0078b4; color: #fff; padding: 8px 16px; border-radius: 4px; }
+    .nav-links .btn-enquiry:hover { background: #005f8f; color: #fff; }
+    .hamburger { display: none; background: none; border: none; font-size: 22px; color: #0078b4; cursor: pointer; }
+    .mobile-nav { display: none; flex-direction: column; background: #fff; border-bottom: 2px solid #0078b4; padding: 10px 20px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; font-weight: 600; color: #333; }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: #f8f9fa; padding: 10px 20px;
+      font-size: 12px; color: #888; border-bottom: 1px solid #eee;
+    }
+    .breadcrumb a { color: #0078b4; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 100%);
+      padding: 30px 20px 20px;
+      border-bottom: 1px solid #dce8f0;
+    }
+    .page-header h1 { font-size: 26px; color: #1a5c82; font-weight: 700; margin-bottom: 6px; }
+    .page-header p { font-size: 13px; color: #555; max-width: 600px; margin-bottom: 16px; }
+    .btn-brochure {
+      display: inline-block; background: #0078b4; color: #fff;
+      padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-brochure:hover { background: #005f8f; }
+
+    /* ===== TAB NAV ===== */
+    .tab-nav {
+      background: #fff; border-bottom: 2px solid #ddd;
+      display: flex; overflow-x: auto; padding: 0 20px;
+      position: sticky; top: 65px; z-index: 99;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .tab-nav::-webkit-scrollbar { height: 0; }
+    .tab-nav a {
+      padding: 12px 16px; font-size: 13px; font-weight: 600; color: #555;
+      white-space: nowrap; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-nav a:hover, .tab-nav a.active { color: #0078b4; border-bottom-color: #0078b4; }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 30px 20px;
+      display: flex; gap: 30px; align-items: flex-start;
+    }
+    .content-area { flex: 1; min-width: 0; }
+    .sidebar { width: 260px; flex-shrink: 0; }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .content-section { margin-bottom: 40px; }
+    .content-section h2 {
+      font-size: 18px; font-weight: 700; color: #1a5c82;
+      margin-bottom: 14px; padding-bottom: 8px;
+      border-bottom: 2px solid #e0f0fa;
+    }
+    .content-section p { font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 10px; }
+    .content-section ul { margin-left: 10px; }
+    .content-section ul li {
+      font-size: 13px; color: #555; padding: 4px 0;
+      padding-left: 18px; position: relative; line-height: 1.7;
+    }
+    .content-section ul li::before { content: '✓'; position: absolute; left: 0; color: #0078b4; font-weight: 700; }
+
+    .overview-grid { display: flex; gap: 20px; align-items: flex-start; }
+    .overview-grid .text { flex: 1; }
+    .overview-grid .img-box { width: 200px; flex-shrink: 0; }
+    .overview-grid .img-box img { width: 100%; border-radius: 8px; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar-box {
+      background: #fff; border: 1px solid #dce8f0;
+      border-radius: 8px; overflow: hidden; margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,120,180,0.07);
+    }
+    .sidebar-box .box-title { background: #0078b4; color: #fff; padding: 12px 16px; font-size: 14px; font-weight: 700; }
+    .sidebar-box .box-body { padding: 16px; }
+    .sidebar-box p { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.6; }
+    .sidebar-box input, .sidebar-box select, .sidebar-box textarea {
+      width: 100%; border: 1px solid #ddd; border-radius: 4px;
+      padding: 9px 10px; font-size: 12px; font-family: 'Open Sans', sans-serif;
+      margin-bottom: 10px; outline: none; transition: border-color 0.2s;
+    }
+    .sidebar-box input:focus, .sidebar-box select:focus { border-color: #0078b4; }
+    .sidebar-box textarea { resize: vertical; min-height: 80px; }
+    .btn-send {
+      width: 100%; background: #0078b4; color: #fff; border: none;
+      padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-send:hover { background: #005f8f; }
+
+    /* ===== FAQ ===== */
+    .faq-item { border: 1px solid #e0ecf5; border-radius: 6px; margin-bottom: 10px; overflow: hidden; }
+    .faq-question {
+      padding: 14px 16px; font-size: 13px; font-weight: 600; color: #1a5c82;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      background: #f5faff; transition: background 0.2s;
+    }
+    .faq-question:hover { background: #e8f4fd; }
+    .faq-question i { font-size: 12px; color: #0078b4; transition: transform 0.3s; }
+    .faq-question.open i { transform: rotate(180deg); }
+    .faq-answer {
+      display: none; padding: 14px 16px; font-size: 13px;
+      color: #555; line-height: 1.7; background: #fff; border-top: 1px solid #e0ecf5;
+    }
+
+    /* ===== SLIDERS COMMON ===== */
+    .sec-area { padding: 40px 20px; }
+    .sec-area.grey { background: #f8f9fa; }
+    .sec-tag { font-size: 12px; color: #0078b4; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+    .sec-area h2 { font-size: 22px; color: #1a5c82; font-weight: 700; text-align: center; margin: 6px 0 24px; }
+    .slider-outer { max-width: 1100px; margin: 0 auto; }
+    .slider-wrap { overflow: hidden; }
+    .slider-track { display: flex; gap: 20px; transition: transform 0.4s ease; }
+    .slider-btns { text-align: center; margin-top: 14px; }
+    .slider-btns button {
+      background: #0078b4; color: #fff; border: none;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 13px; cursor: pointer; margin: 0 4px; transition: background 0.2s;
+    }
+    .slider-btns button:hover { background: #005f8f; }
+    .slider-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+    .slider-dots span {
+      width: 8px; height: 8px; border-radius: 50%; background: #ccc;
+      display: inline-block; cursor: pointer; transition: background 0.2s;
+    }
+    .slider-dots span.active { background: #0078b4; }
+
+    /* Story cards */
+    .story-card {
+      min-width: calc(50% - 10px); background: #fff;
+      border: 1px solid #e0ecf5; border-radius: 8px; overflow: hidden;
+    }
+    .story-card img { width: 100%; height: 160px; object-fit: cover; }
+    .story-body { padding: 14px; }
+    .story-body h4 { font-size: 13px; font-weight: 700; color: #1a5c82; margin-bottom: 6px; }
+    .story-body p { font-size: 12px; color: #666; line-height: 1.6; }
+    .story-author { font-size: 12px; color: #0078b4; font-weight: 600; margin-top: 8px; }
+    .story-author i { color: #e74c3c; margin-right: 4px; }
+
+    /* Doctor cards */
+    .doctor-card {
+      min-width: calc(33.33% - 14px); border: 1px solid #e0ecf5;
+      border-radius: 8px; overflow: hidden; text-align: center; background: #fff; padding-bottom: 16px;
+    }
+    .doc-img {
+      height: 160px; background: linear-gradient(135deg, #e8f4fd, #f5e9ff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 60px; color: #0078b4;
+    }
+    .doctor-card h4 { font-size: 14px; font-weight: 700; color: #1a5c82; margin: 12px 10px 4px; }
+    .doctor-card p { font-size: 12px; color: #888; padding: 0 10px; line-height: 1.5; }
+
+    /* Hospital cards */
+    .hospital-card {
+      min-width: calc(33.33% - 14px); border: 1px solid #e0ecf5;
+      border-radius: 8px; overflow: hidden; background: #fff;
+    }
+    .hospital-card img { width: 100%; height: 140px; object-fit: cover; }
+    .hospital-card .hosp-body { padding: 12px; }
+    .hospital-card h4 { font-size: 13px; font-weight: 700; color: #1a5c82; margin-bottom: 4px; }
+    .hospital-card p { font-size: 12px; color: #888; }
+    .btn-enquire {
+      display: inline-block; margin-top: 8px; background: #0078b4; color: #fff;
+      padding: 6px 14px; border-radius: 4px; font-size: 12px; font-weight: 600;
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      background: linear-gradient(135deg, #0078b4, #1a5c82);
+      padding: 40px 20px; text-align: center; color: #fff;
+    }
+    .cta-banner h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .cta-banner p { font-size: 13px; opacity: 0.9; margin-bottom: 20px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: #0078b4; padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 700; }
+    .btn-green { background: #25d366; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 700; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #1a2533; color: #ccc; padding: 40px 20px 20px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 24px; max-width: 1100px; margin: 0 auto 30px;
+    }
+    .footer-col h4 {
+      color: #fff; font-size: 13px; font-weight: 700;
+      margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2e3f52;
+    }
+    .footer-col p { font-size: 12px; color: #aaa; line-height: 1.7; margin-bottom: 10px; }
+    .footer-col ul li { margin-bottom: 6px; }
+    .footer-col ul li a { font-size: 12px; color: #aaa; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #5bc0eb; }
+    .footer-logo-text { font-size: 18px; font-weight: 700; color: #5bc0eb; margin-bottom: 10px; }
+    .footer-socials { display: flex; gap: 8px; margin-top: 12px; }
+    .footer-socials a {
+      width: 32px; height: 32px; background: #2e3f52; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: #aaa; font-size: 13px; transition: background 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { background: #0078b4; color: #fff; }
+    .footer-bottom {
+      text-align: center; border-top: 1px solid #2e3f52; padding-top: 16px;
+      font-size: 11px; color: #777; max-width: 1100px; margin: 0 auto;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .main-wrap { flex-direction: column; }
+      .sidebar { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .doctor-card { min-width: calc(50% - 10px); }
+      .hospital-card { min-width: calc(50% - 10px); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .story-card { min-width: 100%; }
+      .doctor-card { min-width: 100%; }
+      .hospital-card { min-width: 100%; }
+      .overview-grid { flex-direction: column; }
+      .overview-grid .img-box { width: 100%; }
+      .top-bar { justify-content: center; flex-wrap: wrap; font-size: 11px; gap: 10px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="#"><i class="fas fa-envelope"></i>info@aafiyameditreats.com</a>
+  <a href="#"><i class="fas fa-phone"></i>+91 909-353-2222</a>
+  <a href="#"><i class="fas fa-phone"></i>+91 800-3122</a>
+  <a href="#"><i class="fas fa-globe"></i>EN</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+    <div class="logo-text">AAFIYA <span>MEDISTREATS</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Treatments</a></li>
+    <li><a href="#">Hospitals</a></li>
+    <li><a href="#">Doctors</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#" class="btn-enquiry">Request a Quote</a></li>
+    <li><a href="#"><i class="fas fa-search"></i></a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#">Home</a>
+  <a href="#">Treatments</a>
+  <a href="#">Hospitals</a>
+  <a href="#">Doctors</a>
+  <a href="#">Blog</a>
+  <a href="#">Request a Quote</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a><span>›</span>
+  <a href="#">Treatments</a><span>›</span>
+  <a href="#">Orthopaedic</a><span>›</span>
+  <span>Knee Replacement</span>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Total Knee Replacement</h1>
+  <p>Total Knee Replacement is a surgical procedure to remove all or part of the knee joint damaged by arthritis and replace it with an artificial joint.</p>
+  <a href="#" class="btn-brochure"><i class="fas fa-download" style="margin-right:6px;"></i>Enquire Now</a>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav" id="tabNav">
+  <a href="#overview" class="active">Overview</a>
+  <a href="#eligibility">Eligibility</a>
+  <a href="#preparation">Preparation</a>
+  <a href="#about">About Treatment</a>
+  <a href="#postcare">Post-Treatment Care</a>
+  <a href="#recovery">Recovery Tips</a>
+  <a href="#faq">FAQs</a>
+  <a href="#stories">Patient Stories</a>
+</div>
+
+<!-- MAIN CONTENT + SIDEBAR -->
+<div class="main-wrap">
+
+  <!-- LEFT CONTENT -->
+  <div class="content-area">
+
+    <div class="content-section" id="overview">
+      <h2>Treatment Overview</h2>
+      <div class="overview-grid">
+        <div class="text">
+          <p>Total Knee Replacement (TKR) is one of the most common and successful orthopaedic surgeries performed worldwide. It involves replacing the damaged or worn-out knee joint surfaces with artificial implants to relieve pain and restore function.</p>
+          <p>In this procedure, the surgeon removes damaged cartilage and bone from the surface of the knee joint and replaces it with a prosthesis made of metal alloys, high-grade plastics, and polymers.</p>
+          <p>Total knee replacement can significantly improve quality of life, reduce pain, and restore mobility in patients suffering from severe arthritis or knee injury.</p>
+        </div>
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=300&q=80" alt="Knee Replacement Surgery"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section" id="eligibility">
+      <h2>Eligibility For Treatment</h2>
+      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria based on the overall medical condition and need of the patient. Typically, patients must satisfy the following conditions:</p>
+      <p>In general, patients frequently with the following age group:</p>
+      <ul>
+        <li>The BMI (body mass index) is often below 40</li>
+        <li>You are 65+ years old or have certain health or bone changes that are below the agreed 65 years, with no complications</li>
+        <li>You are willing to make permanent changes to the lifestyle</li>
+        <li>You are going to make permanent changes to the lifestyle</li>
+      </ul>
+    </div>
+
+    <div class="content-section" id="preparation">
+      <h2>Preparation Before Treatment</h2>
+      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria based on the overall medical condition and need of the patient. Preparing well ensures a smooth procedure and faster recovery.</p>
+      <p>In general, patients frequently with the following age group:</p>
+      <ul>
+        <li>The BMI (body mass index) is often below 40</li>
+        <li>You are 65+ years old or have certain health or bone changes that are below the agreed 65 years, with no complications</li>
+        <li>You are willing to make permanent changes to the lifestyle</li>
+      </ul>
+    </div>
+
+    <div class="content-section" id="about">
+      <h2>About Treatment</h2>
+      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria. The doctor will assess the overall health, bone condition, and specific symptoms of the patient before finalizing the treatment approach.</p>
+      <p>In general, patients frequently with the following age group:</p>
+      <ul>
+        <li>The BMI (body mass index) is often below 40</li>
+        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
+        <li>You are willing to make permanent changes to the lifestyle</li>
+        <li>You are going to make permanent changes to the lifestyle</li>
+      </ul>
+    </div>
+
+    <div class="content-section" id="postcare">
+      <h2>Post-Treatment Care Treatment</h2>
+      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet required criteria. Post-operative care is crucial for successful healing and long-term results of knee replacement surgery.</p>
+      <p>In general, patients frequently with the following age group:</p>
+      <ul>
+        <li>The BMI (body mass index) is often below 40</li>
+        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
+        <li>You are willing to make permanent changes to the lifestyle</li>
+        <li>You are going to make permanent changes to the lifestyle</li>
+      </ul>
+    </div>
+
+    <div class="content-section" id="recovery">
+      <h2>Treatment Recovery Tips</h2>
+      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet required criteria. Recovery from knee replacement usually takes 3–6 weeks for basic mobility and up to 3 months for full recovery.</p>
+      <p>In general, patients frequently with the following age group:</p>
+      <ul>
+        <li>The BMI (body mass index) is often below 40</li>
+        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
+        <li>You are willing to make permanent changes to the lifestyle</li>
+        <li>You are going to make permanent changes to the lifestyle</li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div class="content-section" id="faq">
+      <h2>Treatment FAQs</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I know if I am searching to receive it?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">The eligibility for total knee replacement is typically determined by your orthopaedic surgeon based on your symptoms, X-rays, and medical history. If you have severe knee pain affecting daily life, it's best to consult a specialist.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          I can't come alone — can a family member or friend accompany me?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, absolutely. We highly recommend bringing a family member or a trusted friend to accompany you during the procedure and the initial recovery period. They can assist with mobility and post-care.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I see a recovery before a division and what about my post recovery?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Most patients begin walking with assistance within 24 hours of surgery. Full recovery, including return to normal daily activities, typically takes 6–12 weeks. Physical therapy plays a major role in a smooth recovery.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I share my medical reports and medical cases with the clinic of my choice?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">You can share your reports via email or upload them directly on our patient portal. Our medical coordinator will review and connect you with the right specialist within 24–48 hours.</div>
+      </div>
+    </div>
+
+  </div><!-- end content-area -->
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-box">
+      <div class="box-title"><i class="fas fa-headset" style="margin-right:8px;"></i>Need Help?</div>
+      <div class="box-body">
+        <p>Get advice, info and find help by submitting your details below.</p>
+        <input type="text" placeholder="Your Name"/>
+        <input type="email" placeholder="Email Address"/>
+        <input type="tel" placeholder="Phone Number"/>
+        <select>
+          <option value="" disabled selected>Select Treatment</option>
+          <option>Total Knee Replacement</option>
+          <option>Hip Replacement</option>
+          <option>Spine Surgery</option>
+          <option>Cardiac Surgery</option>
+        </select>
+        <textarea placeholder="Your Message / Comments (Optional)"></textarea>
+        <button class="btn-send" onclick="sendEnquiry()">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-wrap -->
+
+<!-- PATIENT STORIES -->
+<div class="sec-area grey" id="stories">
+  <p class="sec-tag">Patient Stories</p>
+  <h2>Patient Stories &amp; Videos</h2>
+  <div class="slider-outer">
+    <div class="slider-wrap">
+      <div class="slider-track" id="storiesTrack">
+        <div class="story-card">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=75" alt="Story 1"/>
+          <div class="story-body">
+            <h4>Underwent procedure for Tonsil Attachment</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The overall feedback was extremely positive.</p>
+            <div class="story-author"><i class="fas fa-map-marker-alt"></i> Luke Ollert — South Africa, Lesotho</div>
+          </div>
+        </div>
+        <div class="story-card">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=75" alt="Story 2"/>
+          <div class="story-body">
+            <h4>Underwent Coronoscopy and Heart Cauterization</h4>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The surgery was a complete success.</p>
+            <div class="story-author"><i class="fas fa-map-marker-alt"></i> Luke Ollert — South Africa, Lesotho</div>
+          </div>
+        </div>
+        <div class="story-card">
+          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&q=75" alt="Story 3"/>
+          <div class="story-body">
+            <h4>Total Knee Replacement — Life Changed</h4>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. I can walk and live normally now.</p>
+            <div class="story-author"><i class="fas fa-map-marker-alt"></i> Maria Gonzalez — Spain, Europe</div>
+          </div>
+        </div>
+        <div class="story-card">
+          <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?w=400&q=75" alt="Story 4"/>
+          <div class="story-body">
+            <h4>Hip Replacement Surgery Success</h4>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excellent doctors and staff.</p>
+            <div class="story-author"><i class="fas fa-map-marker-alt"></i> Ahmed Al Farsi — Dubai, UAE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-btns">
+      <button onclick="slideStories(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="slideStories(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="slider-dots" id="storiesDots"></div>
+  </div>
+</div>
+
+<!-- DOCTORS -->
+<div class="sec-area">
+  <p class="sec-tag">Doctors</p>
+  <h2>Top Orthopaedic Doctors</h2>
+  <div class="slider-outer">
+    <div class="slider-wrap">
+      <div class="slider-track" id="doctorsTrack">
+        <div class="doctor-card">
+          <div class="doc-img"><i class="fas fa-user-md"></i></div>
+          <h4>Dr. Sanjay Batta</h4>
+          <p>Health Aid Hospital - Abu Dhabi<br/>Certified Surgeon &amp; Specialist</p>
+        </div>
+        <div class="doctor-card">
+          <div class="doc-img" style="background:linear-gradient(135deg,#fce4ec,#fdd5e5);"><i class="fas fa-user-md" style="color:#e91e63;"></i></div>
+          <h4>Dr. Sanjay Batta</h4>
+          <p>Health Aid Hospital - Abu Dhabi<br/>Certified Surgeon &amp; Specialist</p>
+        </div>
+        <div class="doctor-card">
+          <div class="doc-img" style="background:linear-gradient(135deg,#e8f5e9,#d5f0dd);"><i class="fas fa-user-md" style="color:#2e7d32;"></i></div>
+          <h4>Dr. Aruna Batta</h4>
+          <p>Medical Scan, Dr Smile<br/>Doctor Surgeon &amp; Specialist</p>
+        </div>
+        <div class="doctor-card">
+          <div class="doc-img" style="background:linear-gradient(135deg,#fff8e1,#fff0cc);"><i class="fas fa-user-md" style="color:#f57f17;"></i></div>
+          <h4>Dr. James Wilson</h4>
+          <p>Apollo Hospital, Mumbai<br/>Senior Orthopaedic Surgeon</p>
+        </div>
+      </div>
+    </div>
+    <div class="slider-btns">
+      <button onclick="slideDoctors(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="slideDoctors(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="slider-dots" id="docDots"></div>
+  </div>
+</div>
+
+<!-- HOSPITALS -->
+<div class="sec-area grey">
+  <p class="sec-tag">Hospitals</p>
+  <h2>Recommended Hospitals</h2>
+  <div class="slider-outer">
+    <div class="slider-wrap">
+      <div class="slider-track" id="hospitalsTrack">
+        <div class="hospital-card">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&q=75" alt="Apollo Hospital"/>
+          <div class="hosp-body">
+            <h4>Apollo Hospital</h4>
+            <p>Chennai</p>
+            <a href="#" class="btn-enquire">Enquire</a>
+          </div>
+        </div>
+        <div class="hospital-card">
+          <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&q=75" alt="Medanta Hospital"/>
+          <div class="hosp-body">
+            <h4>Medanta Hospital</h4>
+            <p>Gurgaon</p>
+            <a href="#" class="btn-enquire">Enquire</a>
+          </div>
+        </div>
+        <div class="hospital-card">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=75" alt="Zanbak Hospital"/>
+          <div class="hosp-body">
+            <h4>Zanbak Hospital</h4>
+            <p>Mumbai</p>
+            <a href="#" class="btn-enquire">Enquire</a>
+          </div>
+        </div>
+        <div class="hospital-card">
+          <img src="https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=400&q=75" alt="Fortis Hospital"/>
+          <div class="hosp-body">
+            <h4>Fortis Hospital</h4>
+            <p>Bangalore</p>
+            <a href="#" class="btn-enquire">Enquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-btns">
+      <button onclick="slideHospitals(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button onclick="slideHospitals(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="slider-dots" id="hospDots"></div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>We have team of healthcare experts</h2>
+  <p>Don't hesitate, contact us for better help and services. Explore all Hospitals!</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-white">Get In Touch</a>
+    <a href="tel:+919877779999" class="btn-green"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>+91 998 777 9999</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo-text">AAFIYA MEDISTREATS</div>
+      <p>Aafiya MediTreats is a healthcare facilitation company dedicated to helping international patients access the best medical treatments across India and abroad.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Important Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Recommended Tabs</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Top Hospitals</h4>
+      <ul>
+        <li><a href="#">Medical Hospitals India</a></li>
+        <li><a href="#">Apollo Hospital Delhi</a></li>
+        <li><a href="#">Jaslok Hospital India</a></li>
+        <li><a href="#">More Hospitals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Speciality Treatments</h4>
+      <ul>
+        <li><a href="#">Cardiology</a></li>
+        <li><a href="#">Oncology</a></li>
+        <li><a href="#">ENT Surgery</a></li>
+        <li><a href="#">Orthopaedic</a></li>
+        <li><a href="#">More Treatments</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Medical Tourism Destinations</h4>
+      <ul>
+        <li><a href="#">Medical Tourism India</a></li>
+        <li><a href="#">Medical Tourism Dr Smile</a></li>
+        <li><a href="#">Medical Tourism Abu Dhabi</a></li>
+        <li><a href="#">More Destinations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aafiya MediTreats. All rights reserved. | <a href="#" style="color:#5bc0eb;">Privacy Policy</a> | <a href="#" style="color:#5bc0eb;">Terms of Use</a></p>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // HAMBURGER MENU
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', function () {
+    mobileNav.classList.toggle('open');
+    var icon = hamburger.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
+  // Close mobile menu on link click
+  mobileNav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      mobileNav.classList.remove('open');
+      hamburger.querySelector('i').classList.add('fa-bars');
+      hamburger.querySelector('i').classList.remove('fa-times');
+    });
+  });
+
+  // TAB ACTIVE ON CLICK
+  document.querySelectorAll('.tab-nav a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.querySelectorAll('.tab-nav a').forEach(function (l) { l.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // FAQ TOGGLE
+  function toggleFaq(el) {
+    var answer = el.nextElementSibling;
+    var isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-question').forEach(function (q) {
+      q.classList.remove('open');
+      q.nextElementSibling.style.display = 'none';
+    });
+    if (!isOpen) {
+      el.classList.add('open');
+      answer.style.display = 'block';
+    }
+  }
+
+  // SEND ENQUIRY BUTTON
+  function sendEnquiry() {
+    var btn = document.querySelector('.btn-send');
+    btn.textContent = '✓ Enquiry Sent!';
+    btn.style.background = '#1a8a4a';
+    setTimeout(function () {
+      btn.textContent = 'Send Enquiry';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // SLIDER FACTORY
+  function createSlider(trackId, dotsId, visibleCount) {
+    var track = document.getElementById(trackId);
+    var dotsContainer = document.getElementById(dotsId);
+    var items = track.children.length;
+    var current = 0;
+    var maxSlide = Math.max(0, items - visibleCount);
+
+    for (var i = 0; i <= maxSlide; i++) {
+      var dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      (function (idx) {
+        dot.addEventListener('click', function () { goTo(idx); });
+      })(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxSlide));
+      var itemWidth = track.children[0].offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * itemWidth) + 'px)';
+      var dots = dotsContainer.querySelectorAll('span');
+      dots.forEach(function (d) { d.classList.remove('active'); });
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    return {
+      prev: function () { goTo(current - 1); },
+      next: function () { goTo(current + 1); }
+    };
+  }
+
+  // Init sliders
+  var storiesSlider, doctorsSlider, hospitalsSlider;
+  window.addEventListener('load', function () {
+    var w = window.innerWidth;
+    var storyVis = w < 600 ? 1 : 2;
+    var docVis   = w < 600 ? 1 : w < 900 ? 2 : 3;
+    var hospVis  = w < 600 ? 1 : w < 900 ? 2 : 3;
+    storiesSlider  = createSlider('storiesTrack',  'storiesDots', storyVis);
+    doctorsSlider  = createSlider('doctorsTrack',  'docDots',     docVis);
+    hospitalsSlider = createSlider('hospitalsTrack', 'hospDots',  hospVis);
+  });
+
+  function slideStories(dir)  { dir === -1 ? storiesSlider.prev()  : storiesSlider.next(); }
+  function slideDoctors(dir)  { dir === -1 ? doctorsSlider.prev()  : doctorsSlider.next(); }
+  function slideHospitals(dir){ dir === -1 ? hospitalsSlider.prev(): hospitalsSlider.next(); }
+
+  // SCROLL SPY
+  window.addEventListener('scroll', function () {
+    var sections = ['overview','eligibility','preparation','about','postcare','recovery','faq','stories'];
+    var fromTop = window.scrollY + 150;
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (el.offsetTop <= fromTop && el.offsetTop + el.offsetHeight > fromTop) {
+        document.querySelectorAll('.tab-nav a').forEach(function (l) { l.classList.remove('active'); });
+        var a = document.querySelector('.tab-nav a[href="#' + id + '"]');
+        if (a) a.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
