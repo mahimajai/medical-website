@@ -2,325 +2,1186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Total Knee Replacement - Aafiya MediTreats</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #333; background: #fff; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; }
 
-    /* ===== TOP BAR ===== */
+  <!-- font awesome for icons, found this on their website -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- google fonts - using Nunito + Lato combo, looks clean -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* resetting default browser stuff, every project needs this */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: #2d3748;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* ---------- TOP BAR (small strip at very top) ---------- */
     .top-bar {
-      background: #f5f5f5;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 6px 20px;
+      background: #f0f7ff;
+      border-bottom: 1px solid #d1e8f7;
+      padding: 7px 24px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
       font-size: 12px;
-      color: #555;
+      color: #4a6fa5;
     }
-    .top-bar a { color: #555; }
-    .top-bar a:hover { color: #0078b4; }
-    .top-bar i { margin-right: 4px; color: #0078b4; }
 
-    /* ===== NAVBAR ===== */
+    .top-bar a {
+      color: #4a6fa5;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+
+    .top-bar a:hover {
+      color: #1a56a0;
+    }
+
+    .top-bar i {
+      color: #2980b9;
+      font-size: 11px;
+    }
+
+    /* ---------- MAIN NAVBAR ---------- */
     .navbar {
       background: #fff;
-      border-bottom: 2px solid #0078b4;
-      padding: 0 20px;
+      border-bottom: 3px solid #2980b9;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 65px;
+      height: 68px;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      z-index: 999;
+      box-shadow: 0 3px 12px rgba(41, 128, 185, 0.1);
     }
-    .nav-logo { display: flex; align-items: center; gap: 8px; }
-    .nav-logo .logo-icon {
-      background: #0078b4; color: #fff; font-size: 22px;
-      width: 42px; height: 42px;
-      display: flex; align-items: center; justify-content: center;
+
+    /* logo area */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #2980b9, #1a6494);
+      color: #fff;
+      font-size: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    .logo-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: #1a6494;
+      line-height: 1.2;
+    }
+
+    .logo-text small {
+      display: block;
+      font-size: 9px;
+      color: #95a5a6;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-links a {
+      padding: 8px 13px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2980b9;
+      background: #ebf5fb;
+    }
+
+    /* the blue "Request a Quote" button */
+    .nav-links .quote-btn {
+      background: #2980b9;
+      color: #fff !important;
+      padding: 8px 18px;
       border-radius: 6px;
     }
-    .nav-logo .logo-text { font-size: 18px; font-weight: 700; color: #0078b4; line-height: 1.1; }
-    .nav-logo .logo-text span { display: block; font-size: 10px; color: #888; font-weight: 400; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a {
-      padding: 8px 12px; font-size: 13px; font-weight: 600; color: #333;
-      border-radius: 4px; transition: color 0.2s, background 0.2s;
-    }
-    .nav-links a:hover { color: #0078b4; background: #f0f8ff; }
-    .nav-links .btn-enquiry { background: #0078b4; color: #fff; padding: 8px 16px; border-radius: 4px; }
-    .nav-links .btn-enquiry:hover { background: #005f8f; color: #fff; }
-    .hamburger { display: none; background: none; border: none; font-size: 22px; color: #0078b4; cursor: pointer; }
-    .mobile-nav { display: none; flex-direction: column; background: #fff; border-bottom: 2px solid #0078b4; padding: 10px 20px; }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; font-weight: 600; color: #333; }
 
-    /* ===== BREADCRUMB ===== */
+    .nav-links .quote-btn:hover {
+      background: #1a6494 !important;
+    }
+
+    /* hamburger for mobile - hidden on desktop */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #2980b9;
+      cursor: pointer;
+    }
+
+    /* mobile dropdown menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      border-bottom: 2px solid #d1e8f7;
+      padding: 8px 20px 14px;
+    }
+
+    .mobile-menu.show {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 11px 0;
+      border-bottom: 1px solid #f0f4f8;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    /* ---------- BREADCRUMB ---------- */
     .breadcrumb {
-      background: #f8f9fa; padding: 10px 20px;
-      font-size: 12px; color: #888; border-bottom: 1px solid #eee;
+      background: #fafbfc;
+      padding: 10px 24px;
+      font-size: 12px;
+      color: #718096;
+      border-bottom: 1px solid #e8edf2;
     }
-    .breadcrumb a { color: #0078b4; }
-    .breadcrumb a:hover { text-decoration: underline; }
-    .breadcrumb span { margin: 0 6px; }
 
-    /* ===== PAGE HEADER ===== */
-    .page-header {
-      background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 100%);
-      padding: 30px 20px 20px;
-      border-bottom: 1px solid #dce8f0;
+    .breadcrumb a {
+      color: #2980b9;
     }
-    .page-header h1 { font-size: 26px; color: #1a5c82; font-weight: 700; margin-bottom: 6px; }
-    .page-header p { font-size: 13px; color: #555; max-width: 600px; margin-bottom: 16px; }
-    .btn-brochure {
-      display: inline-block; background: #0078b4; color: #fff;
-      padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 600;
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb .sep {
+      margin: 0 7px;
+      color: #cbd5e0;
+    }
+
+    /* ---------- PAGE HEADER BANNER ---------- */
+    .page-hero {
+      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 60%, #faf5ff 100%);
+      padding: 36px 24px 28px;
+      border-bottom: 1px solid #c3daf0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative circle in background - adds a bit of depth */
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 280px;
+      height: 280px;
+      background: rgba(41, 128, 185, 0.06);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #2980b9;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a3a5c;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .page-hero p {
+      font-size: 14px;
+      color: #4a6fa5;
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #2980b9;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
       transition: background 0.2s;
     }
-    .btn-brochure:hover { background: #005f8f; }
 
-    /* ===== TAB NAV ===== */
+    .btn-primary:hover {
+      background: #1a6494;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #fff;
+      color: #2980b9;
+      border: 2px solid #2980b9;
+      padding: 9px 20px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #ebf5fb;
+    }
+
+    /* ---------- TAB NAVIGATION (sticky below navbar) ---------- */
     .tab-nav {
-      background: #fff; border-bottom: 2px solid #ddd;
-      display: flex; overflow-x: auto; padding: 0 20px;
-      position: sticky; top: 65px; z-index: 99;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      background: #fff;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      overflow-x: auto;
+      padding: 0 24px;
+      position: sticky;
+      top: 68px;
+      z-index: 99;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
-    .tab-nav::-webkit-scrollbar { height: 0; }
+
+    /* hide scrollbar but still scrollable on mobile */
+    .tab-nav::-webkit-scrollbar {
+      height: 0;
+    }
+
     .tab-nav a {
-      padding: 12px 16px; font-size: 13px; font-weight: 600; color: #555;
-      white-space: nowrap; border-bottom: 3px solid transparent;
-      margin-bottom: -2px; transition: color 0.2s, border-color 0.2s;
-    }
-    .tab-nav a:hover, .tab-nav a.active { color: #0078b4; border-bottom-color: #0078b4; }
-
-    /* ===== MAIN LAYOUT ===== */
-    .main-wrap {
-      max-width: 1100px; margin: 0 auto; padding: 30px 20px;
-      display: flex; gap: 30px; align-items: flex-start;
-    }
-    .content-area { flex: 1; min-width: 0; }
-    .sidebar { width: 260px; flex-shrink: 0; }
-
-    /* ===== CONTENT SECTIONS ===== */
-    .content-section { margin-bottom: 40px; }
-    .content-section h2 {
-      font-size: 18px; font-weight: 700; color: #1a5c82;
-      margin-bottom: 14px; padding-bottom: 8px;
-      border-bottom: 2px solid #e0f0fa;
-    }
-    .content-section p { font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 10px; }
-    .content-section ul { margin-left: 10px; }
-    .content-section ul li {
-      font-size: 13px; color: #555; padding: 4px 0;
-      padding-left: 18px; position: relative; line-height: 1.7;
-    }
-    .content-section ul li::before { content: '✓'; position: absolute; left: 0; color: #0078b4; font-weight: 700; }
-
-    .overview-grid { display: flex; gap: 20px; align-items: flex-start; }
-    .overview-grid .text { flex: 1; }
-    .overview-grid .img-box { width: 200px; flex-shrink: 0; }
-    .overview-grid .img-box img { width: 100%; border-radius: 8px; }
-
-    /* ===== SIDEBAR ===== */
-    .sidebar-box {
-      background: #fff; border: 1px solid #dce8f0;
-      border-radius: 8px; overflow: hidden; margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,120,180,0.07);
-    }
-    .sidebar-box .box-title { background: #0078b4; color: #fff; padding: 12px 16px; font-size: 14px; font-weight: 700; }
-    .sidebar-box .box-body { padding: 16px; }
-    .sidebar-box p { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.6; }
-    .sidebar-box input, .sidebar-box select, .sidebar-box textarea {
-      width: 100%; border: 1px solid #ddd; border-radius: 4px;
-      padding: 9px 10px; font-size: 12px; font-family: 'Open Sans', sans-serif;
-      margin-bottom: 10px; outline: none; transition: border-color 0.2s;
-    }
-    .sidebar-box input:focus, .sidebar-box select:focus { border-color: #0078b4; }
-    .sidebar-box textarea { resize: vertical; min-height: 80px; }
-    .btn-send {
-      width: 100%; background: #0078b4; color: #fff; border: none;
-      padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 700;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .btn-send:hover { background: #005f8f; }
-
-    /* ===== FAQ ===== */
-    .faq-item { border: 1px solid #e0ecf5; border-radius: 6px; margin-bottom: 10px; overflow: hidden; }
-    .faq-question {
-      padding: 14px 16px; font-size: 13px; font-weight: 600; color: #1a5c82;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      background: #f5faff; transition: background 0.2s;
-    }
-    .faq-question:hover { background: #e8f4fd; }
-    .faq-question i { font-size: 12px; color: #0078b4; transition: transform 0.3s; }
-    .faq-question.open i { transform: rotate(180deg); }
-    .faq-answer {
-      display: none; padding: 14px 16px; font-size: 13px;
-      color: #555; line-height: 1.7; background: #fff; border-top: 1px solid #e0ecf5;
+      padding: 13px 16px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #718096;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* ===== SLIDERS COMMON ===== */
-    .sec-area { padding: 40px 20px; }
-    .sec-area.grey { background: #f8f9fa; }
-    .sec-tag { font-size: 12px; color: #0078b4; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
-    .sec-area h2 { font-size: 22px; color: #1a5c82; font-weight: 700; text-align: center; margin: 6px 0 24px; }
-    .slider-outer { max-width: 1100px; margin: 0 auto; }
-    .slider-wrap { overflow: hidden; }
-    .slider-track { display: flex; gap: 20px; transition: transform 0.4s ease; }
-    .slider-btns { text-align: center; margin-top: 14px; }
-    .slider-btns button {
-      background: #0078b4; color: #fff; border: none;
-      width: 32px; height: 32px; border-radius: 50%;
-      font-size: 13px; cursor: pointer; margin: 0 4px; transition: background 0.2s;
+    .tab-nav a:hover,
+    .tab-nav a.active {
+      color: #2980b9;
+      border-bottom-color: #2980b9;
     }
-    .slider-btns button:hover { background: #005f8f; }
-    .slider-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
-    .slider-dots span {
-      width: 8px; height: 8px; border-radius: 50%; background: #ccc;
-      display: inline-block; cursor: pointer; transition: background 0.2s;
-    }
-    .slider-dots span.active { background: #0078b4; }
 
-    /* Story cards */
+    /* ---------- MAIN LAYOUT: content + sidebar side by side ---------- */
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .content-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sidebar-col {
+      width: 268px;
+      flex-shrink: 0;
+    }
+
+    /* ---------- CONTENT SECTIONS ---------- */
+    .section {
+      margin-bottom: 44px;
+      scroll-margin-top: 140px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ebf5fb;
+    }
+
+    .section-header .icon {
+      width: 34px;
+      height: 34px;
+      background: #ebf5fb;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2980b9;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a3a5c;
+    }
+
+    .section p {
+      font-size: 13.5px;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    /* checklist items */
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #4a5568;
+      line-height: 1.7;
+      padding: 8px 12px;
+      background: #f7fbff;
+      border-radius: 7px;
+      border-left: 3px solid #2980b9;
+    }
+
+    .check-list li .tick {
+      color: #2980b9;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* overview section layout: text on left, image on right */
+    .overview-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .overview-text {
+      flex: 1;
+    }
+
+    .overview-img {
+      width: 195px;
+      flex-shrink: 0;
+    }
+
+    .overview-img img {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px solid #d1e8f7;
+    }
+
+    /* little info cards inside overview */
+    .info-cards {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .info-card {
+      background: #f0f7ff;
+      border: 1px solid #c3daf0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      flex: 1;
+      min-width: 110px;
+    }
+
+    .info-card .label {
+      font-size: 11px;
+      color: #718096;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-card .value {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a3a5c;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* ---------- FAQ ACCORDION ---------- */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid #d1e8f7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 14px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a3a5c;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f7fbff;
+      transition: background 0.2s;
+      gap: 10px;
+    }
+
+    .faq-q:hover {
+      background: #ebf5fb;
+    }
+
+    .faq-q .arrow {
+      color: #2980b9;
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .faq-q.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: #4a5568;
+      line-height: 1.75;
+      background: #fff;
+      border-top: 1px solid #d1e8f7;
+    }
+
+    /* ---------- SIDEBAR WIDGETS ---------- */
+    .sidebar-widget {
+      background: #fff;
+      border: 1px solid #d1e8f7;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(41, 128, 185, 0.08);
+    }
+
+    .widget-head {
+      background: linear-gradient(135deg, #2980b9, #1a6494);
+      color: #fff;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .widget-body {
+      padding: 16px;
+    }
+
+    .widget-body p {
+      font-size: 12.5px;
+      color: #718096;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    /* form inputs styling */
+    .widget-body input,
+    .widget-body select,
+    .widget-body textarea {
+      width: 100%;
+      border: 1.5px solid #d1e8f7;
+      border-radius: 7px;
+      padding: 9px 12px;
+      font-size: 12.5px;
+      font-family: 'Lato', sans-serif;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: #2d3748;
+    }
+
+    .widget-body input:focus,
+    .widget-body select:focus,
+    .widget-body textarea:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+    }
+
+    .widget-body textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      padding: 11px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .btn-submit:hover {
+      background: #1a6494;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    /* quick contact buttons in sidebar */
+    .quick-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 7px;
+      font-size: 12.5px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .contact-btn.call {
+      background: #ebf5fb;
+      color: #1a6494;
+      border: 1.5px solid #b8d9f0;
+    }
+
+    .contact-btn.call:hover {
+      background: #d1e8f7;
+    }
+
+    .contact-btn.whatsapp {
+      background: #e8f8f0;
+      color: #1a7d44;
+      border: 1.5px solid #a9dfc3;
+    }
+
+    .contact-btn.whatsapp:hover {
+      background: #d1f0e0;
+    }
+
+    .contact-btn i {
+      font-size: 16px;
+    }
+
+    /* ---------- PATIENT STORIES SECTION ---------- */
+    .stories-section {
+      background: #f7fbff;
+      padding: 44px 24px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      color: #2980b9;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a3a5c;
+      text-align: center;
+      margin: 6px 0 28px;
+    }
+
+    /* slider container */
+    .slider-outer {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .slider-clip {
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    /* story cards */
     .story-card {
-      min-width: calc(50% - 10px); background: #fff;
-      border: 1px solid #e0ecf5; border-radius: 8px; overflow: hidden;
+      min-width: calc(50% - 10px);
+      background: #fff;
+      border: 1px solid #d1e8f7;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(41, 128, 185, 0.07);
     }
-    .story-card img { width: 100%; height: 160px; object-fit: cover; }
-    .story-body { padding: 14px; }
-    .story-body h4 { font-size: 13px; font-weight: 700; color: #1a5c82; margin-bottom: 6px; }
-    .story-body p { font-size: 12px; color: #666; line-height: 1.6; }
-    .story-author { font-size: 12px; color: #0078b4; font-weight: 600; margin-top: 8px; }
-    .story-author i { color: #e74c3c; margin-right: 4px; }
 
-    /* Doctor cards */
-    .doctor-card {
-      min-width: calc(33.33% - 14px); border: 1px solid #e0ecf5;
-      border-radius: 8px; overflow: hidden; text-align: center; background: #fff; padding-bottom: 16px;
+    .story-card img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
     }
-    .doc-img {
-      height: 160px; background: linear-gradient(135deg, #e8f4fd, #f5e9ff);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 60px; color: #0078b4;
-    }
-    .doctor-card h4 { font-size: 14px; font-weight: 700; color: #1a5c82; margin: 12px 10px 4px; }
-    .doctor-card p { font-size: 12px; color: #888; padding: 0 10px; line-height: 1.5; }
 
-    /* Hospital cards */
-    .hospital-card {
-      min-width: calc(33.33% - 14px); border: 1px solid #e0ecf5;
-      border-radius: 8px; overflow: hidden; background: #fff;
+    .story-card-body {
+      padding: 14px 16px;
     }
-    .hospital-card img { width: 100%; height: 140px; object-fit: cover; }
-    .hospital-card .hosp-body { padding: 12px; }
-    .hospital-card h4 { font-size: 13px; font-weight: 700; color: #1a5c82; margin-bottom: 4px; }
-    .hospital-card p { font-size: 12px; color: #888; }
+
+    .story-card-body h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin-bottom: 7px;
+    }
+
+    .story-card-body p {
+      font-size: 12.5px;
+      color: #718096;
+      line-height: 1.65;
+    }
+
+    .story-author {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #2980b9;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* prev/next buttons + dots */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .slider-btn {
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-btn:hover {
+      background: #1a6494;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c3daf0;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .dots span.active {
+      background: #2980b9;
+    }
+
+    /* ---------- DOCTORS SECTION ---------- */
+    .doctors-section {
+      background: #fff;
+      padding: 44px 24px;
+    }
+
+    .doc-card {
+      min-width: calc(33.33% - 14px);
+      border: 1px solid #d1e8f7;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      text-align: center;
+      padding-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(41, 128, 185, 0.06);
+    }
+
+    .doc-avatar {
+      height: 155px;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* initials circle inside avatar */
+    .avatar-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #2980b9;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doc-card h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #1a3a5c;
+      margin: 14px 10px 5px;
+    }
+
+    .doc-card p {
+      font-size: 12px;
+      color: #718096;
+      padding: 0 12px;
+      line-height: 1.55;
+    }
+
+    .doc-specialty {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      background: #ebf5fb;
+      color: #1a6494;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    /* ---------- HOSPITALS SECTION ---------- */
+    .hospitals-section {
+      background: #f7fbff;
+      padding: 44px 24px;
+    }
+
+    .hosp-card {
+      min-width: calc(33.33% - 14px);
+      border: 1px solid #d1e8f7;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(41, 128, 185, 0.06);
+    }
+
+    .hosp-card img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+    }
+
+    .hosp-card-body {
+      padding: 13px;
+    }
+
+    .hosp-card h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1a3a5c;
+      margin-bottom: 3px;
+    }
+
+    .hosp-card p {
+      font-size: 12px;
+      color: #718096;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     .btn-enquire {
-      display: inline-block; margin-top: 8px; background: #0078b4; color: #fff;
-      padding: 6px 14px; border-radius: 4px; font-size: 12px; font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+      background: #ebf5fb;
+      color: #1a6494;
+      border: 1.5px solid #b8d9f0;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all 0.2s;
     }
 
-    /* ===== CTA BANNER ===== */
-    .cta-banner {
-      background: linear-gradient(135deg, #0078b4, #1a5c82);
-      padding: 40px 20px; text-align: center; color: #fff;
+    .btn-enquire:hover {
+      background: #2980b9;
+      color: #fff;
+      border-color: #2980b9;
     }
-    .cta-banner h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-    .cta-banner p { font-size: 13px; opacity: 0.9; margin-bottom: 20px; }
-    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: #0078b4; padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 700; }
-    .btn-green { background: #25d366; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 700; }
 
-    /* ===== FOOTER ===== */
-    footer { background: #1a2533; color: #ccc; padding: 40px 20px 20px; }
+    /* ---------- CTA SECTION ---------- */
+    .cta-section {
+      background: linear-gradient(135deg, #1a6494, #2980b9 50%, #1a3a5c);
+      padding: 52px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 24px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: #1a6494;
+      padding: 11px 26px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      background: #ebf5fb;
+    }
+
+    .btn-green {
+      background: #25d366;
+      color: #fff;
+      padding: 11px 26px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-green:hover {
+      background: #1fad55;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #0f1e2d;
+      color: #8fa3b8;
+      padding: 48px 24px 22px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
     .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 24px; max-width: 1100px; margin: 0 auto 30px;
-    }
-    .footer-col h4 {
-      color: #fff; font-size: 13px; font-weight: 700;
-      margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #2e3f52;
-    }
-    .footer-col p { font-size: 12px; color: #aaa; line-height: 1.7; margin-bottom: 10px; }
-    .footer-col ul li { margin-bottom: 6px; }
-    .footer-col ul li a { font-size: 12px; color: #aaa; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: #5bc0eb; }
-    .footer-logo-text { font-size: 18px; font-weight: 700; color: #5bc0eb; margin-bottom: 10px; }
-    .footer-socials { display: flex; gap: 8px; margin-top: 12px; }
-    .footer-socials a {
-      width: 32px; height: 32px; background: #2e3f52; border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: #aaa; font-size: 13px; transition: background 0.2s, color 0.2s;
-    }
-    .footer-socials a:hover { background: #0078b4; color: #fff; }
-    .footer-bottom {
-      text-align: center; border-top: 1px solid #2e3f52; padding-top: 16px;
-      font-size: 11px; color: #777; max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 36px;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .main-wrap { flex-direction: column; }
-      .sidebar { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .doctor-card { min-width: calc(50% - 10px); }
-      .hospital-card { min-width: calc(50% - 10px); }
+    .footer-brand-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #5bc0eb;
+      margin-bottom: 12px;
     }
+
+    .footer-col p {
+      font-size: 12.5px;
+      color: #7a8f9f;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .footer-col h5 {
+      color: #d4e6f1;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #1e3347;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 7px;
+    }
+
+    .footer-col ul li a {
+      font-size: 12.5px;
+      color: #7a8f9f;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #5bc0eb;
+    }
+
+    /* social icons in footer */
+    .socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .socials a {
+      width: 33px;
+      height: 33px;
+      background: #1e3347;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a8f9f;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    .socials a:hover {
+      background: #2980b9;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e3347;
+      padding-top: 18px;
+      text-align: center;
+      font-size: 11.5px;
+      color: #4a6275;
+    }
+
+    .footer-bottom a {
+      color: #5bc0eb;
+    }
+
+    /* ---------- RESPONSIVE STYLES ---------- */
+    /* tablets */
+    @media (max-width: 900px) {
+      .page-wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar-col {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .doc-card {
+        min-width: calc(50% - 10px);
+      }
+
+      .hosp-card {
+        min-width: calc(50% - 10px);
+      }
+    }
+
+    /* phones */
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hamburger { display: block; }
-      .story-card { min-width: 100%; }
-      .doctor-card { min-width: 100%; }
-      .hospital-card { min-width: 100%; }
-      .overview-grid { flex-direction: column; }
-      .overview-grid .img-box { width: 100%; }
-      .top-bar { justify-content: center; flex-wrap: wrap; font-size: 11px; gap: 10px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .page-header h1 { font-size: 20px; }
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .story-card {
+        min-width: 100%;
+      }
+
+      .doc-card {
+        min-width: 100%;
+      }
+
+      .hosp-card {
+        min-width: 100%;
+      }
+
+      .overview-layout {
+        flex-direction: column;
+      }
+
+      .overview-img {
+        width: 100%;
+      }
+
+      .top-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 11px;
+        gap: 12px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero h1 {
+        font-size: 22px;
+      }
+
+      .info-cards {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- ===== TOP BAR: email, phone numbers ===== -->
 <div class="top-bar">
-  <a href="#"><i class="fas fa-envelope"></i>info@aafiyameditreats.com</a>
-  <a href="#"><i class="fas fa-phone"></i>+91 909-353-2222</a>
-  <a href="#"><i class="fas fa-phone"></i>+91 800-3122</a>
-  <a href="#"><i class="fas fa-globe"></i>EN</a>
+  <a href="#"><i class="fas fa-envelope"></i> info@aafiyameditreats.com</a>
+  <a href="#"><i class="fas fa-phone"></i> +91 909-353-2222</a>
+  <a href="#"><i class="fas fa-phone"></i> +91 800-3122</a>
+  <a href="#"><i class="fas fa-globe"></i> EN</a>
 </div>
 
-<!-- NAVBAR -->
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="nav-logo">
     <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
-    <div class="logo-text">AAFIYA <span>MEDISTREATS</span></div>
+    <div class="logo-text">AAFIYA <small>MEDISTREATS</small></div>
   </div>
+
+  <!-- desktop nav links -->
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">Treatments</a></li>
     <li><a href="#">Hospitals</a></li>
     <li><a href="#">Doctors</a></li>
     <li><a href="#">Blog</a></li>
-    <li><a href="#" class="btn-enquiry">Request a Quote</a></li>
+    <li><a href="#" class="quote-btn">Request a Quote</a></li>
     <li><a href="#"><i class="fas fa-search"></i></a></li>
   </ul>
+
+  <!-- mobile hamburger icon -->
   <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
 </nav>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
+<!-- mobile nav dropdown (hidden by default) -->
+<div class="mobile-menu" id="mobileMenu">
   <a href="#">Home</a>
   <a href="#">Treatments</a>
   <a href="#">Hospitals</a>
@@ -329,487 +1190,633 @@
   <a href="#">Request a Quote</a>
 </div>
 
-<!-- BREADCRUMB -->
+<!-- ===== BREADCRUMB ===== -->
 <div class="breadcrumb">
-  <a href="#">Home</a><span>›</span>
-  <a href="#">Treatments</a><span>›</span>
-  <a href="#">Orthopaedic</a><span>›</span>
+  <a href="#">Home</a>
+  <span class="sep">›</span>
+  <a href="#">Treatments</a>
+  <span class="sep">›</span>
+  <a href="#">Orthopaedic</a>
+  <span class="sep">›</span>
   <span>Knee Replacement</span>
 </div>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <h1>Total Knee Replacement</h1>
-  <p>Total Knee Replacement is a surgical procedure to remove all or part of the knee joint damaged by arthritis and replace it with an artificial joint.</p>
-  <a href="#" class="btn-brochure"><i class="fas fa-download" style="margin-right:6px;"></i>Enquire Now</a>
+<!-- ===== PAGE HERO HEADER ===== -->
+<div class="page-hero">
+  <div class="hero-content">
+    <span class="hero-tag">Orthopaedic Surgery</span>
+    <h1>Total Knee Replacement</h1>
+    <p>A surgical procedure to remove and replace the knee joint damaged by arthritis — restoring mobility, reducing pain, and improving quality of life.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+      <a href="#" class="btn-outline"><i class="fas fa-download"></i> Download Brochure</a>
+    </div>
+  </div>
 </div>
 
-<!-- TAB NAV -->
+<!-- ===== STICKY TAB NAVIGATION ===== -->
 <div class="tab-nav" id="tabNav">
   <a href="#overview" class="active">Overview</a>
   <a href="#eligibility">Eligibility</a>
   <a href="#preparation">Preparation</a>
-  <a href="#about">About Treatment</a>
-  <a href="#postcare">Post-Treatment Care</a>
-  <a href="#recovery">Recovery Tips</a>
+  <a href="#about">About</a>
+  <a href="#postcare">Post-Care</a>
+  <a href="#recovery">Recovery</a>
   <a href="#faq">FAQs</a>
-  <a href="#stories">Patient Stories</a>
+  <a href="#stories">Stories</a>
 </div>
 
-<!-- MAIN CONTENT + SIDEBAR -->
-<div class="main-wrap">
+<!-- ===== MAIN CONTENT + SIDEBAR ===== -->
+<div class="page-wrapper">
 
-  <!-- LEFT CONTENT -->
-  <div class="content-area">
+  <!-- Left side: all the article content -->
+  <div class="content-col">
 
-    <div class="content-section" id="overview">
-      <h2>Treatment Overview</h2>
-      <div class="overview-grid">
-        <div class="text">
+    <!-- OVERVIEW -->
+    <div class="section" id="overview">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-info-circle"></i></div>
+        <h2>Treatment Overview</h2>
+      </div>
+
+      <div class="overview-layout">
+        <div class="overview-text">
           <p>Total Knee Replacement (TKR) is one of the most common and successful orthopaedic surgeries performed worldwide. It involves replacing the damaged or worn-out knee joint surfaces with artificial implants to relieve pain and restore function.</p>
-          <p>In this procedure, the surgeon removes damaged cartilage and bone from the surface of the knee joint and replaces it with a prosthesis made of metal alloys, high-grade plastics, and polymers.</p>
-          <p>Total knee replacement can significantly improve quality of life, reduce pain, and restore mobility in patients suffering from severe arthritis or knee injury.</p>
+          <p>The surgeon removes damaged cartilage and bone from the surface of the knee joint and replaces it with a prosthesis made of metal alloys, high-grade plastics, and polymers. This is not as scary as it sounds — the implants are designed to last 15–20 years.</p>
+          <p>TKR can significantly improve quality of life, reduce chronic pain, and restore mobility in patients suffering from severe arthritis or knee injury.</p>
+
+          <!-- quick stats row -->
+          <div class="info-cards">
+            <div class="info-card">
+              <div class="label">Duration</div>
+              <div class="value">1.5 – 3 hrs</div>
+            </div>
+            <div class="info-card">
+              <div class="label">Hospital Stay</div>
+              <div class="value">3 – 5 days</div>
+            </div>
+            <div class="info-card">
+              <div class="label">Full Recovery</div>
+              <div class="value">3 – 6 months</div>
+            </div>
+          </div>
         </div>
-        <div class="img-box">
-          <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=300&q=80" alt="Knee Replacement Surgery"/>
+
+        <div class="overview-img">
+          <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=300&q=80" alt="Knee Replacement Surgery Illustration" />
         </div>
       </div>
     </div>
 
-    <div class="content-section" id="eligibility">
-      <h2>Eligibility For Treatment</h2>
-      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria based on the overall medical condition and need of the patient. Typically, patients must satisfy the following conditions:</p>
-      <p>In general, patients frequently with the following age group:</p>
-      <ul>
-        <li>The BMI (body mass index) is often below 40</li>
-        <li>You are 65+ years old or have certain health or bone changes that are below the agreed 65 years, with no complications</li>
-        <li>You are willing to make permanent changes to the lifestyle</li>
-        <li>You are going to make permanent changes to the lifestyle</li>
-      </ul>
-    </div>
-
-    <div class="content-section" id="preparation">
-      <h2>Preparation Before Treatment</h2>
-      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria based on the overall medical condition and need of the patient. Preparing well ensures a smooth procedure and faster recovery.</p>
-      <p>In general, patients frequently with the following age group:</p>
-      <ul>
-        <li>The BMI (body mass index) is often below 40</li>
-        <li>You are 65+ years old or have certain health or bone changes that are below the agreed 65 years, with no complications</li>
-        <li>You are willing to make permanent changes to the lifestyle</li>
-      </ul>
-    </div>
-
-    <div class="content-section" id="about">
-      <h2>About Treatment</h2>
-      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet the required criteria. The doctor will assess the overall health, bone condition, and specific symptoms of the patient before finalizing the treatment approach.</p>
-      <p>In general, patients frequently with the following age group:</p>
-      <ul>
-        <li>The BMI (body mass index) is often below 40</li>
-        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
-        <li>You are willing to make permanent changes to the lifestyle</li>
-        <li>You are going to make permanent changes to the lifestyle</li>
-      </ul>
-    </div>
-
-    <div class="content-section" id="postcare">
-      <h2>Post-Treatment Care Treatment</h2>
-      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet required criteria. Post-operative care is crucial for successful healing and long-term results of knee replacement surgery.</p>
-      <p>In general, patients frequently with the following age group:</p>
-      <ul>
-        <li>The BMI (body mass index) is often below 40</li>
-        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
-        <li>You are willing to make permanent changes to the lifestyle</li>
-        <li>You are going to make permanent changes to the lifestyle</li>
-      </ul>
-    </div>
-
-    <div class="content-section" id="recovery">
-      <h2>Treatment Recovery Tips</h2>
-      <p>Any individual who has been evaluated by a medical professional may be eligible for treatment if they meet required criteria. Recovery from knee replacement usually takes 3–6 weeks for basic mobility and up to 3 months for full recovery.</p>
-      <p>In general, patients frequently with the following age group:</p>
-      <ul>
-        <li>The BMI (body mass index) is often below 40</li>
-        <li>You are 65+ years old or have certain health or bone changes below the agreed 65 years, with no complications</li>
-        <li>You are willing to make permanent changes to the lifestyle</li>
-        <li>You are going to make permanent changes to the lifestyle</li>
-      </ul>
-    </div>
-
-    <!-- FAQ -->
-    <div class="content-section" id="faq">
-      <h2>Treatment FAQs</h2>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          How do I know if I am searching to receive it?
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">The eligibility for total knee replacement is typically determined by your orthopaedic surgeon based on your symptoms, X-rays, and medical history. If you have severe knee pain affecting daily life, it's best to consult a specialist.</div>
+    <!-- ELIGIBILITY -->
+    <div class="section" id="eligibility">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-user-check"></i></div>
+        <h2>Eligibility For Treatment</h2>
       </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          I can't come alone — can a family member or friend accompany me?
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">Yes, absolutely. We highly recommend bringing a family member or a trusted friend to accompany you during the procedure and the initial recovery period. They can assist with mobility and post-care.</div>
+      <p>Any individual evaluated by a medical professional may be eligible for treatment if they meet the required criteria based on their overall medical condition and need. Typically, patients must satisfy the following conditions:</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> BMI (body mass index) is generally below 40</li>
+        <li><span class="tick">✓</span> Patient is 65+ years old, or has significant bone/joint changes with no major complications</li>
+        <li><span class="tick">✓</span> Willing to commit to lifestyle adjustments after surgery</li>
+        <li><span class="tick">✓</span> No active infection or uncontrolled medical conditions that could increase surgical risk</li>
+      </ul>
+    </div>
+
+    <!-- PREPARATION -->
+    <div class="section" id="preparation">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+        <h2>Preparation Before Treatment</h2>
       </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Can I see a recovery before a division and what about my post recovery?
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">Most patients begin walking with assistance within 24 hours of surgery. Full recovery, including return to normal daily activities, typically takes 6–12 weeks. Physical therapy plays a major role in a smooth recovery.</div>
+      <p>Preparing well before surgery ensures a smoother procedure and a much faster recovery. Your surgeon and care team will guide you through specific steps, but here's a general idea of what to expect:</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> Get a full pre-operative health assessment including blood tests and X-rays</li>
+        <li><span class="tick">✓</span> Stop blood-thinning medications (like aspirin) at least a week before — check with your doctor</li>
+        <li><span class="tick">✓</span> Arrange your home for easier movement post-surgery (grab bars, raised toilet seat, clear pathways)</li>
+        <li><span class="tick">✓</span> Maintain a healthy weight — even small reductions can reduce surgical risk</li>
+        <li><span class="tick">✓</span> Avoid eating or drinking anything 8–12 hours before surgery</li>
+      </ul>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section" id="about">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-stethoscope"></i></div>
+        <h2>About The Treatment</h2>
       </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          How do I share my medical reports and medical cases with the clinic of my choice?
-          <i class="fas fa-chevron-down"></i>
+      <p>During a total knee replacement, the surgeon makes an incision along the front of the knee to access the joint. The damaged surfaces of the femur (thigh bone) and tibia (shin bone) are precisely removed using cutting guides, and the metal implant components are attached.</p>
+      <p>A plastic spacer is placed between the metal components to create a smooth gliding surface — mimicking the function of natural cartilage. In some cases, the underside of the kneecap (patella) is also resurfaced.</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> Performed under general or spinal anaesthesia</li>
+        <li><span class="tick">✓</span> Implants are made from surgical-grade metal alloys and medical-grade polyethylene</li>
+        <li><span class="tick">✓</span> Minimally invasive options available in some cases, with smaller incisions</li>
+        <li><span class="tick">✓</span> Robotic-assisted surgery available at select hospitals for greater precision</li>
+      </ul>
+    </div>
+
+    <!-- POST CARE -->
+    <div class="section" id="postcare">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-heartbeat"></i></div>
+        <h2>Post-Treatment Care</h2>
+      </div>
+      <p>Post-operative care is crucial for successful healing and long-term results. The first few weeks after surgery are the most important — this is where your commitment directly impacts your outcome.</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> Physiotherapy typically starts the day after surgery — early movement prevents blood clots</li>
+        <li><span class="tick">✓</span> Pain medication and anti-inflammatory drugs will be prescribed — take them as directed</li>
+        <li><span class="tick">✓</span> Keep the wound clean and dry; report any signs of infection (redness, swelling, discharge) immediately</li>
+        <li><span class="tick">✓</span> Use a walker or crutches initially; transition to a cane as strength improves</li>
+        <li><span class="tick">✓</span> Attend all follow-up appointments — X-rays will be done to monitor implant positioning</li>
+      </ul>
+    </div>
+
+    <!-- RECOVERY -->
+    <div class="section" id="recovery">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-running"></i></div>
+        <h2>Recovery Tips</h2>
+      </div>
+      <p>Most patients are surprised by how quickly they recover. Walking with support typically starts within 24 hours of surgery. Here are some tips to make the recovery smoother:</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span> Do your physiotherapy exercises consistently — even when it feels uncomfortable</li>
+        <li><span class="tick">✓</span> Use ice packs on the knee for 15–20 minutes several times a day to manage swelling</li>
+        <li><span class="tick">✓</span> Elevate your leg when resting to reduce fluid build-up around the joint</li>
+        <li><span class="tick">✓</span> Avoid kneeling, running, and high-impact activities for at least 6 months</li>
+        <li><span class="tick">✓</span> Swimming and cycling are excellent low-impact exercises once cleared by your surgeon</li>
+        <li><span class="tick">✓</span> Most patients return to driving 4–6 weeks after surgery (right leg surgery requires longer)</li>
+      </ul>
+    </div>
+
+    <!-- FAQs -->
+    <div class="section" id="faq">
+      <div class="section-header">
+        <div class="icon"><i class="fas fa-question-circle"></i></div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How do I know if I need a knee replacement?
+            <i class="fas fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-a">Eligibility is typically determined by your orthopaedic surgeon based on your symptoms, X-rays, and medical history. If you have severe knee pain that affects daily activities like walking or climbing stairs, and conservative treatments (physiotherapy, injections) haven't helped, it may be time to consider surgery.</div>
         </div>
-        <div class="faq-answer">You can share your reports via email or upload them directly on our patient portal. Our medical coordinator will review and connect you with the right specialist within 24–48 hours.</div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can a family member accompany me during my medical trip?
+            <i class="fas fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-a">Absolutely — we highly recommend it. Having a trusted companion helps with mobility support, communication with care staff, and general emotional comfort during recovery. We can assist in arranging accommodation nearby for your companion as well.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What does the recovery timeline look like?
+            <i class="fas fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-a">Most patients start walking with a walker within 24 hours of surgery. By 6 weeks, many can manage daily tasks independently. Full recovery — including return to more physical activities — typically takes 3 to 6 months. Consistent physiotherapy is the biggest factor in a smooth recovery.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How can I share my medical reports with the team?
+            <i class="fas fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-a">You can share your reports via email at info@aafiyameditreats.com or upload them directly through our patient portal. Our medical coordinator will review everything and connect you with the right specialist within 24–48 hours of receiving your documents.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How long do knee implants last?
+            <i class="fas fa-chevron-down arrow"></i>
+          </div>
+          <div class="faq-a">Modern knee implants are designed to last 15–20 years with proper care. Factors like body weight, activity level, and adherence to post-operative guidance all affect the longevity of the implant. Your surgeon will advise on activities to avoid to maximize the life of the implant.</div>
+        </div>
       </div>
     </div>
 
-  </div><!-- end content-area -->
+  </div><!-- end content-col -->
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <div class="sidebar-box">
-      <div class="box-title"><i class="fas fa-headset" style="margin-right:8px;"></i>Need Help?</div>
-      <div class="box-body">
-        <p>Get advice, info and find help by submitting your details below.</p>
-        <input type="text" placeholder="Your Name"/>
-        <input type="email" placeholder="Email Address"/>
-        <input type="tel" placeholder="Phone Number"/>
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar-col">
+
+    <!-- Enquiry Form -->
+    <div class="sidebar-widget">
+      <div class="widget-head">
+        <i class="fas fa-headset"></i> Get Free Consultation
+      </div>
+      <div class="widget-body">
+        <p>Fill in your details and our care coordinator will reach out to you within 24 hours.</p>
+        <input type="text" placeholder="Your Full Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="tel" placeholder="Phone / WhatsApp Number" />
         <select>
           <option value="" disabled selected>Select Treatment</option>
           <option>Total Knee Replacement</option>
+          <option>Partial Knee Replacement</option>
           <option>Hip Replacement</option>
           <option>Spine Surgery</option>
           <option>Cardiac Surgery</option>
         </select>
-        <textarea placeholder="Your Message / Comments (Optional)"></textarea>
-        <button class="btn-send" onclick="sendEnquiry()">Send Enquiry</button>
+        <textarea placeholder="Describe your condition briefly (Optional)"></textarea>
+        <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Send Enquiry</button>
       </div>
     </div>
-  </div>
 
-</div><!-- end main-wrap -->
+    <!-- Quick Contact -->
+    <div class="sidebar-widget">
+      <div class="widget-head">
+        <i class="fas fa-phone-alt"></i> Quick Contact
+      </div>
+      <div class="widget-body">
+        <div class="quick-contact">
+          <a href="tel:+919093532222" class="contact-btn call">
+            <i class="fas fa-phone"></i>
+            <span>+91 909-353-2222</span>
+          </a>
+          <a href="https://wa.me/919877779999" class="contact-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-<!-- PATIENT STORIES -->
-<div class="sec-area grey" id="stories">
-  <p class="sec-tag">Patient Stories</p>
-  <h2>Patient Stories &amp; Videos</h2>
+  </div><!-- end sidebar-col -->
+
+</div><!-- end page-wrapper -->
+
+<!-- ===== PATIENT STORIES SLIDER ===== -->
+<div class="stories-section" id="stories">
+  <p class="section-label">Real Experiences</p>
+  <h2 class="section-title">Patient Stories &amp; Videos</h2>
+
   <div class="slider-outer">
-    <div class="slider-wrap">
+    <div class="slider-clip">
       <div class="slider-track" id="storiesTrack">
         <div class="story-card">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=75" alt="Story 1"/>
-          <div class="story-body">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=75" alt="Patient Story 1" />
+          <div class="story-card-body">
             <h4>Underwent procedure for Tonsil Attachment</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The overall feedback was extremely positive.</p>
+            <p>The team was incredibly professional and the entire process from arrival to discharge was smooth and stress-free. I felt completely taken care of.</p>
             <div class="story-author"><i class="fas fa-map-marker-alt"></i> Luke Ollert — South Africa, Lesotho</div>
           </div>
         </div>
         <div class="story-card">
-          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=75" alt="Story 2"/>
-          <div class="story-body">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=75" alt="Patient Story 2" />
+          <div class="story-card-body">
             <h4>Underwent Coronoscopy and Heart Cauterization</h4>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The surgery was a complete success.</p>
+            <p>I travelled all the way from Lesotho and I have zero regrets. The surgery was a complete success and the follow-up care was outstanding.</p>
             <div class="story-author"><i class="fas fa-map-marker-alt"></i> Luke Ollert — South Africa, Lesotho</div>
           </div>
         </div>
         <div class="story-card">
-          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&q=75" alt="Story 3"/>
-          <div class="story-body">
-            <h4>Total Knee Replacement — Life Changed</h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. I can walk and live normally now.</p>
+          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&q=75" alt="Patient Story 3" />
+          <div class="story-card-body">
+            <h4>Total Knee Replacement — My Life Changed</h4>
+            <p>I could barely walk before the surgery. Within 3 months I was walking to the market on my own. I can now live normally and that means everything.</p>
             <div class="story-author"><i class="fas fa-map-marker-alt"></i> Maria Gonzalez — Spain, Europe</div>
           </div>
         </div>
         <div class="story-card">
-          <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?w=400&q=75" alt="Story 4"/>
-          <div class="story-body">
+          <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?w=400&q=75" alt="Patient Story 4" />
+          <div class="story-card-body">
             <h4>Hip Replacement Surgery Success</h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excellent doctors and staff.</p>
+            <p>Excellent doctors, excellent staff. The hospital was world-class and the coordination from Aafiya made everything so easy to manage from abroad.</p>
             <div class="story-author"><i class="fas fa-map-marker-alt"></i> Ahmed Al Farsi — Dubai, UAE</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="slider-btns">
-      <button onclick="slideStories(-1)"><i class="fas fa-chevron-left"></i></button>
-      <button onclick="slideStories(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="storiesSlider.prev()"><i class="fas fa-chevron-left"></i></button>
+      <div class="dots" id="storiesDots"></div>
+      <button class="slider-btn" onclick="storiesSlider.next()"><i class="fas fa-chevron-right"></i></button>
     </div>
-    <div class="slider-dots" id="storiesDots"></div>
   </div>
 </div>
 
-<!-- DOCTORS -->
-<div class="sec-area">
-  <p class="sec-tag">Doctors</p>
-  <h2>Top Orthopaedic Doctors</h2>
+<!-- ===== DOCTORS SLIDER ===== -->
+<div class="doctors-section">
+  <p class="section-label">Our Specialists</p>
+  <h2 class="section-title">Top Orthopaedic Doctors</h2>
+
   <div class="slider-outer">
-    <div class="slider-wrap">
+    <div class="slider-clip">
       <div class="slider-track" id="doctorsTrack">
-        <div class="doctor-card">
-          <div class="doc-img"><i class="fas fa-user-md"></i></div>
+        <div class="doc-card">
+          <div class="doc-avatar">
+            <div class="avatar-circle" style="background:#2980b9;">SB</div>
+          </div>
           <h4>Dr. Sanjay Batta</h4>
-          <p>Health Aid Hospital - Abu Dhabi<br/>Certified Surgeon &amp; Specialist</p>
+          <p>Health Aid Hospital, Abu Dhabi</p>
+          <span class="doc-specialty">Orthopaedic Surgeon</span>
         </div>
-        <div class="doctor-card">
-          <div class="doc-img" style="background:linear-gradient(135deg,#fce4ec,#fdd5e5);"><i class="fas fa-user-md" style="color:#e91e63;"></i></div>
-          <h4>Dr. Sanjay Batta</h4>
-          <p>Health Aid Hospital - Abu Dhabi<br/>Certified Surgeon &amp; Specialist</p>
+        <div class="doc-card">
+          <div class="doc-avatar" style="background: linear-gradient(135deg,#fce4ec,#fdd5e5);">
+            <div class="avatar-circle" style="background:#e91e63;">PM</div>
+          </div>
+          <h4>Dr. Priya Mehra</h4>
+          <p>Apollo Hospital, Chennai</p>
+          <span class="doc-specialty" style="background:#fce4ec;color:#c2185b;">Joint Replacement Specialist</span>
         </div>
-        <div class="doctor-card">
-          <div class="doc-img" style="background:linear-gradient(135deg,#e8f5e9,#d5f0dd);"><i class="fas fa-user-md" style="color:#2e7d32;"></i></div>
+        <div class="doc-card">
+          <div class="doc-avatar" style="background: linear-gradient(135deg,#e8f5e9,#d5f0dd);">
+            <div class="avatar-circle" style="background:#2e7d32;">AB</div>
+          </div>
           <h4>Dr. Aruna Batta</h4>
-          <p>Medical Scan, Dr Smile<br/>Doctor Surgeon &amp; Specialist</p>
+          <p>Medical Scan, Dr Smile Clinic</p>
+          <span class="doc-specialty" style="background:#e8f5e9;color:#1b5e20;">Knee &amp; Spine Surgeon</span>
         </div>
-        <div class="doctor-card">
-          <div class="doc-img" style="background:linear-gradient(135deg,#fff8e1,#fff0cc);"><i class="fas fa-user-md" style="color:#f57f17;"></i></div>
+        <div class="doc-card">
+          <div class="doc-avatar" style="background: linear-gradient(135deg,#fff8e1,#fff0cc);">
+            <div class="avatar-circle" style="background:#f57f17;">JW</div>
+          </div>
           <h4>Dr. James Wilson</h4>
-          <p>Apollo Hospital, Mumbai<br/>Senior Orthopaedic Surgeon</p>
+          <p>Medanta Hospital, Gurgaon</p>
+          <span class="doc-specialty" style="background:#fff8e1;color:#e65100;">Senior Orthopaedic</span>
         </div>
       </div>
     </div>
-    <div class="slider-btns">
-      <button onclick="slideDoctors(-1)"><i class="fas fa-chevron-left"></i></button>
-      <button onclick="slideDoctors(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="doctorsSlider.prev()"><i class="fas fa-chevron-left"></i></button>
+      <div class="dots" id="docDots"></div>
+      <button class="slider-btn" onclick="doctorsSlider.next()"><i class="fas fa-chevron-right"></i></button>
     </div>
-    <div class="slider-dots" id="docDots"></div>
   </div>
 </div>
 
-<!-- HOSPITALS -->
-<div class="sec-area grey">
-  <p class="sec-tag">Hospitals</p>
-  <h2>Recommended Hospitals</h2>
+<!-- ===== HOSPITALS SLIDER ===== -->
+<div class="hospitals-section">
+  <p class="section-label">Top Facilities</p>
+  <h2 class="section-title">Recommended Hospitals</h2>
+
   <div class="slider-outer">
-    <div class="slider-wrap">
+    <div class="slider-clip">
       <div class="slider-track" id="hospitalsTrack">
-        <div class="hospital-card">
-          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&q=75" alt="Apollo Hospital"/>
-          <div class="hosp-body">
+        <div class="hosp-card">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&q=75" alt="Apollo Hospital" />
+          <div class="hosp-card-body">
             <h4>Apollo Hospital</h4>
-            <p>Chennai</p>
-            <a href="#" class="btn-enquire">Enquire</a>
+            <p><i class="fas fa-map-marker-alt" style="font-size:11px;"></i> Chennai</p>
+            <a href="#" class="btn-enquire">Enquire Now</a>
           </div>
         </div>
-        <div class="hospital-card">
-          <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&q=75" alt="Medanta Hospital"/>
-          <div class="hosp-body">
+        <div class="hosp-card">
+          <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&q=75" alt="Medanta Hospital" />
+          <div class="hosp-card-body">
             <h4>Medanta Hospital</h4>
-            <p>Gurgaon</p>
-            <a href="#" class="btn-enquire">Enquire</a>
+            <p><i class="fas fa-map-marker-alt" style="font-size:11px;"></i> Gurgaon</p>
+            <a href="#" class="btn-enquire">Enquire Now</a>
           </div>
         </div>
-        <div class="hospital-card">
-          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=75" alt="Zanbak Hospital"/>
-          <div class="hosp-body">
-            <h4>Zanbak Hospital</h4>
-            <p>Mumbai</p>
-            <a href="#" class="btn-enquire">Enquire</a>
+        <div class="hosp-card">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=75" alt="Kokilaben Hospital" />
+          <div class="hosp-card-body">
+            <h4>Kokilaben Hospital</h4>
+            <p><i class="fas fa-map-marker-alt" style="font-size:11px;"></i> Mumbai</p>
+            <a href="#" class="btn-enquire">Enquire Now</a>
           </div>
         </div>
-        <div class="hospital-card">
-          <img src="https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=400&q=75" alt="Fortis Hospital"/>
-          <div class="hosp-body">
+        <div class="hosp-card">
+          <img src="https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=400&q=75" alt="Fortis Hospital" />
+          <div class="hosp-card-body">
             <h4>Fortis Hospital</h4>
-            <p>Bangalore</p>
-            <a href="#" class="btn-enquire">Enquire</a>
+            <p><i class="fas fa-map-marker-alt" style="font-size:11px;"></i> Bangalore</p>
+            <a href="#" class="btn-enquire">Enquire Now</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="slider-btns">
-      <button onclick="slideHospitals(-1)"><i class="fas fa-chevron-left"></i></button>
-      <button onclick="slideHospitals(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="hospitalsSlider.prev()"><i class="fas fa-chevron-left"></i></button>
+      <div class="dots" id="hospDots"></div>
+      <button class="slider-btn" onclick="hospitalsSlider.next()"><i class="fas fa-chevron-right"></i></button>
     </div>
-    <div class="slider-dots" id="hospDots"></div>
   </div>
 </div>
 
-<!-- CTA BANNER -->
-<div class="cta-banner">
-  <h2>We have team of healthcare experts</h2>
-  <p>Don't hesitate, contact us for better help and services. Explore all Hospitals!</p>
-  <div class="cta-btns">
+<!-- ===== CTA BANNER ===== -->
+<div class="cta-section">
+  <h2>We have a team of healthcare experts ready to help</h2>
+  <p>Don't hesitate — contact us for better guidance, hospital recommendations, and end-to-end support.</p>
+  <div class="cta-buttons">
     <a href="#" class="btn-white">Get In Touch</a>
-    <a href="tel:+919877779999" class="btn-green"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>+91 998 777 9999</a>
+    <a href="tel:+919877779999" class="btn-green">
+      <i class="fab fa-whatsapp"></i> +91 998 777 9999
+    </a>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <div class="footer-logo-text">AAFIYA MEDISTREATS</div>
-      <p>Aafiya MediTreats is a healthcare facilitation company dedicated to helping international patients access the best medical treatments across India and abroad.</p>
-      <div class="footer-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- Brand column -->
+      <div class="footer-col">
+        <div class="footer-brand-name">AAFIYA MEDISTREATS</div>
+        <p>A healthcare facilitation company dedicated to helping international patients access the best medical treatments across India and abroad. We handle everything end-to-end.</p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
+
+      <!-- Important Links -->
+      <div class="footer-col">
+        <h5>Important Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Top Hospitals -->
+      <div class="footer-col">
+        <h5>Top Hospitals</h5>
+        <ul>
+          <li><a href="#">Apollo Hospital Delhi</a></li>
+          <li><a href="#">Medanta Gurgaon</a></li>
+          <li><a href="#">Jaslok Hospital India</a></li>
+          <li><a href="#">Fortis Bangalore</a></li>
+          <li><a href="#">All Hospitals</a></li>
+        </ul>
+      </div>
+
+      <!-- Treatments -->
+      <div class="footer-col">
+        <h5>Treatments</h5>
+        <ul>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Oncology</a></li>
+          <li><a href="#">ENT Surgery</a></li>
+          <li><a href="#">Orthopaedic</a></li>
+          <li><a href="#">More Treatments</a></li>
+        </ul>
+      </div>
+
+      <!-- Destinations -->
+      <div class="footer-col">
+        <h5>Medical Tourism</h5>
+        <ul>
+          <li><a href="#">Medical Tourism India</a></li>
+          <li><a href="#">Medical Tourism UAE</a></li>
+          <li><a href="#">Abu Dhabi</a></li>
+          <li><a href="#">Turkey</a></li>
+          <li><a href="#">All Destinations</a></li>
+        </ul>
+      </div>
+
+    </div><!-- end footer-grid -->
+
+    <div class="footer-bottom">
+      <p>© 2026 Aafiya MediTreats. All rights reserved. |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Use</a>
+      </p>
     </div>
-    <div class="footer-col">
-      <h4>Important Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Recommended Tabs</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Top Hospitals</h4>
-      <ul>
-        <li><a href="#">Medical Hospitals India</a></li>
-        <li><a href="#">Apollo Hospital Delhi</a></li>
-        <li><a href="#">Jaslok Hospital India</a></li>
-        <li><a href="#">More Hospitals</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Speciality Treatments</h4>
-      <ul>
-        <li><a href="#">Cardiology</a></li>
-        <li><a href="#">Oncology</a></li>
-        <li><a href="#">ENT Surgery</a></li>
-        <li><a href="#">Orthopaedic</a></li>
-        <li><a href="#">More Treatments</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Medical Tourism Destinations</h4>
-      <ul>
-        <li><a href="#">Medical Tourism India</a></li>
-        <li><a href="#">Medical Tourism Dr Smile</a></li>
-        <li><a href="#">Medical Tourism Abu Dhabi</a></li>
-        <li><a href="#">More Destinations</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Aafiya MediTreats. All rights reserved. | <a href="#" style="color:#5bc0eb;">Privacy Policy</a> | <a href="#" style="color:#5bc0eb;">Terms of Use</a></p>
   </div>
 </footer>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-  // HAMBURGER MENU
+  // --- HAMBURGER TOGGLE ---
+  // pretty simple, just toggle the 'show' class on mobile menu
   var hamburger = document.getElementById('hamburger');
-  var mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', function () {
-    mobileNav.classList.toggle('open');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('show');
     var icon = hamburger.querySelector('i');
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
   });
-  // Close mobile menu on link click
-  mobileNav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      mobileNav.classList.remove('open');
+
+  // close menu when any link is clicked
+  mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('show');
       hamburger.querySelector('i').classList.add('fa-bars');
       hamburger.querySelector('i').classList.remove('fa-times');
     });
   });
 
-  // TAB ACTIVE ON CLICK
-  document.querySelectorAll('.tab-nav a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      document.querySelectorAll('.tab-nav a').forEach(function (l) { l.classList.remove('active'); });
-      this.classList.add('active');
-    });
-  });
-
-  // FAQ TOGGLE
+  // --- FAQ ACCORDION ---
+  // only one open at a time
   function toggleFaq(el) {
     var answer = el.nextElementSibling;
-    var isOpen = el.classList.contains('open');
-    document.querySelectorAll('.faq-question').forEach(function (q) {
+    var alreadyOpen = el.classList.contains('open');
+
+    // close all first
+    document.querySelectorAll('.faq-q').forEach(function(q) {
       q.classList.remove('open');
       q.nextElementSibling.style.display = 'none';
     });
-    if (!isOpen) {
+
+    // open clicked one (unless it was already open)
+    if (!alreadyOpen) {
       el.classList.add('open');
       answer.style.display = 'block';
     }
   }
 
-  // SEND ENQUIRY BUTTON
-  function sendEnquiry() {
-    var btn = document.querySelector('.btn-send');
+  // --- FORM SUBMIT BUTTON ---
+  function handleSubmit() {
+    var btn = document.getElementById('submitBtn');
     btn.textContent = '✓ Enquiry Sent!';
     btn.style.background = '#1a8a4a';
-    setTimeout(function () {
+    setTimeout(function() {
       btn.textContent = 'Send Enquiry';
       btn.style.background = '';
     }, 3000);
   }
 
-  // SLIDER FACTORY
-  function createSlider(trackId, dotsId, visibleCount) {
+  // --- SLIDER FACTORY ---
+  // I built this as a reusable function so I don't repeat code for each slider
+  // it takes the track id, dots container id, and how many cards to show at once
+  function makeSlider(trackId, dotsId, visibleCount) {
     var track = document.getElementById(trackId);
-    var dotsContainer = document.getElementById(dotsId);
-    var items = track.children.length;
+    var dotsEl = document.getElementById(dotsId);
+    var totalItems = track.children.length;
     var current = 0;
-    var maxSlide = Math.max(0, items - visibleCount);
+    var maxIdx = Math.max(0, totalItems - visibleCount);
 
-    for (var i = 0; i <= maxSlide; i++) {
+    // create the dot indicators
+    for (var i = 0; i <= maxIdx; i++) {
       var dot = document.createElement('span');
       if (i === 0) dot.classList.add('active');
-      (function (idx) {
-        dot.addEventListener('click', function () { goTo(idx); });
+      (function(idx) {
+        dot.addEventListener('click', function() { goTo(idx); });
       })(i);
-      dotsContainer.appendChild(dot);
+      dotsEl.appendChild(dot);
     }
 
     function goTo(idx) {
-      current = Math.max(0, Math.min(idx, maxSlide));
-      var itemWidth = track.children[0].offsetWidth + 20;
-      track.style.transform = 'translateX(-' + (current * itemWidth) + 'px)';
-      var dots = dotsContainer.querySelectorAll('span');
-      dots.forEach(function (d) { d.classList.remove('active'); });
-      if (dots[current]) dots[current].classList.add('active');
+      current = Math.max(0, Math.min(idx, maxIdx));
+      // get width of first item + gap (gap is 20px)
+      var itemW = track.children[0].offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * itemW) + 'px)';
+
+      // update dots
+      dotsEl.querySelectorAll('span').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
     }
 
     return {
-      prev: function () { goTo(current - 1); },
-      next: function () { goTo(current + 1); }
+      prev: function() { goTo(current - 1); },
+      next: function() { goTo(current + 1); }
     };
   }
 
-  // Init sliders
+  // init sliders after page loads (need actual widths)
   var storiesSlider, doctorsSlider, hospitalsSlider;
-  window.addEventListener('load', function () {
+
+  window.addEventListener('load', function() {
     var w = window.innerWidth;
-    var storyVis = w < 600 ? 1 : 2;
-    var docVis   = w < 600 ? 1 : w < 900 ? 2 : 3;
-    var hospVis  = w < 600 ? 1 : w < 900 ? 2 : 3;
-    storiesSlider  = createSlider('storiesTrack',  'storiesDots', storyVis);
-    doctorsSlider  = createSlider('doctorsTrack',  'docDots',     docVis);
-    hospitalsSlider = createSlider('hospitalsTrack', 'hospDots',  hospVis);
+    var storyVisible   = w < 600 ? 1 : 2;
+    var docVisible     = w < 600 ? 1 : w < 900 ? 2 : 3;
+    var hospVisible    = w < 600 ? 1 : w < 900 ? 2 : 3;
+
+    storiesSlider   = makeSlider('storiesTrack',   'storiesDots', storyVisible);
+    doctorsSlider   = makeSlider('doctorsTrack',   'docDots',     docVisible);
+    hospitalsSlider = makeSlider('hospitalsTrack', 'hospDots',    hospVisible);
   });
 
-  function slideStories(dir)  { dir === -1 ? storiesSlider.prev()  : storiesSlider.next(); }
-  function slideDoctors(dir)  { dir === -1 ? doctorsSlider.prev()  : doctorsSlider.next(); }
-  function slideHospitals(dir){ dir === -1 ? hospitalsSlider.prev(): hospitalsSlider.next(); }
-
-  // SCROLL SPY
-  window.addEventListener('scroll', function () {
+  // --- SCROLL SPY (highlights tab when you scroll to section) ---
+  window.addEventListener('scroll', function() {
     var sections = ['overview','eligibility','preparation','about','postcare','recovery','faq','stories'];
-    var fromTop = window.scrollY + 150;
-    sections.forEach(function (id) {
+    var scrollPos = window.scrollY + 160;
+
+    sections.forEach(function(id) {
       var el = document.getElementById(id);
       if (!el) return;
-      if (el.offsetTop <= fromTop && el.offsetTop + el.offsetHeight > fromTop) {
-        document.querySelectorAll('.tab-nav a').forEach(function (l) { l.classList.remove('active'); });
-        var a = document.querySelector('.tab-nav a[href="#' + id + '"]');
-        if (a) a.classList.add('active');
+
+      if (el.offsetTop <= scrollPos && (el.offsetTop + el.offsetHeight) > scrollPos) {
+        document.querySelectorAll('.tab-nav a').forEach(function(a) {
+          a.classList.remove('active');
+        });
+        var activeTab = document.querySelector('.tab-nav a[href="#' + id + '"]');
+        if (activeTab) activeTab.classList.add('active');
       }
+    });
+  });
+
+  // tab active on click too
+  document.querySelectorAll('.tab-nav a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.tab-nav a').forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active');
     });
   });
 </script>
